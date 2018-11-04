@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ErrorComponent} from "./error/error.component";
-import {EmployeeComponent} from "./employee/employee.component";
+import {ErrorComponent} from './error/error.component';
+import {EmployeeComponent} from './employee/employee.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/employee', pathMatch: 'full'}, // default route

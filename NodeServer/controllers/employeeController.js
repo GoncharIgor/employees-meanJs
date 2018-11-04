@@ -32,7 +32,8 @@ router.get('/:id', async (req, res) => {
 router.post('/',
     [check('name', 'Incorrect length of name parameter').isLength({min: 3})],
     [body('position', 'Incorrect length of position parameter').isLength({min: 1})],
-    [body('office', 'Incorrect length of office parameter').isLength({min: 3})]
+    [body('office', 'Incorrect length of office parameter').isLength({min: 3})],
+    [body('salary', 'Only numeric values are accepted').optional({nullable: true}).isNumeric()]
     , async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -43,7 +44,7 @@ router.post('/',
             name: req.body.name,
             position: req.body.position,
             office: req.body.office,
-            salary: req.body.salary
+            salary: +req.body.salary
         });
         try {
             const savedEmployee = await emp.save();
@@ -62,7 +63,7 @@ router.put('/:id', async (req, res) => {
         name: req.body.name,
         position: req.body.position,
         office: req.body.office,
-        salary: req.body.salary
+        salary: +req.body.salary
     };
     try {
         const updatedEmployee = await Employee.findByIdAndUpdate(req.params.id, {$set: emp}, {new: true});

@@ -23,31 +23,32 @@ export class EmployeeComponent implements OnInit {
   }
 
   resetForm(form?: NgForm) {
-    if (form)
+    if (form) {
       form.reset();
-    this.employeeService.selectedEmployee = {
-      _id: "",
-      avatar: "",
-      name: "",
-      position: "",
-      office: "",
-      salary: null
     }
+    this.employeeService.selectedEmployee = {
+      _id: '',
+      avatar: '',
+      name: '',
+      position: '',
+      office: '',
+      salary: null
+    };
   }
 
   onSubmit(form: NgForm) {
-    if (form.value._id === "" || form.value._id === null) {
+    if (form.value._id === '' || form.value._id === null) {
       this.employeeService.postEmployee(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshEmployeeList();
         // window.location.reload();
-        M.toast({html: 'Saved successfully', classes: 'rounded'});
+        M.toast({html: 'Saved successfully', classes: 'rounded green'});
       });
     } else {
       this.employeeService.putEmployee(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshEmployeeList();
-        M.toast({html: 'Updated successfully', classes: 'rounded'});
+        M.toast({html: 'Updated successfully', classes: 'rounded green'});
       });
     }
   }
@@ -68,7 +69,7 @@ export class EmployeeComponent implements OnInit {
       this.employeeService.deleteEmployee(_id).subscribe((res) => {
         this.refreshEmployeeList();
         this.resetForm(form);
-        M.toast({html: 'Deleted successfully', classes: 'rounded'});
+        M.toast({html: 'Deleted successfully', classes: 'rounded red lighten-1'});
       });
     }
   }
