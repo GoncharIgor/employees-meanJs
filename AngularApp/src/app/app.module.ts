@@ -9,13 +9,15 @@ import {ErrorComponent} from './error/error.component';
 import {AppRoutingModule} from './app-routing.module';
 import {GlobalErrorHandler} from './global.error.handler.service';
 import { NavigationPanelComponent } from './navigation-panel/navigation-panel.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
     ErrorComponent,
-    NavigationPanelComponent
+    NavigationPanelComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

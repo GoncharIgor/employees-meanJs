@@ -1,0 +1,71 @@
+<div class="wrapper">
+  <div class="content">
+    <div class="login-box-wrapper">
+
+      <form>
+        <div class="login-box row">
+
+          <div class="col s12 login-box__header">
+            <div class="col s4 offset-s4">
+              <img src="../../assets/img/emp_logo.png" class="responsive-img" alt="Employees"/>
+            </div>
+          </div>
+
+          <!--<p class="col s10 offset-s1 center-align">Please enter your username and password to log in.</p>-->
+
+          <div class="col s10 offset-s1">
+            <div class="login-error-container">
+              <p class="login-error">
+
+              </p>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text"
+                       name="username"
+                       autocomplete="off"
+                       class="validate"
+                       id="username"
+                       autofocus>
+                <label for="username">Username</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password"
+                       type="password"
+                       class="validate"
+                       name="password"
+                       autocomplete="off"
+                       caps-lock-directive/>
+                <label for="password">Password</label>
+              </div>
+              <!--<div class="input-field col s12 remember-me-container">-->
+              <!--<input id="rememberMe" name="rememberMe" type="checkbox" class="validate" />-->
+              <!--<label for="rememberMe">Remember me</label>-->
+              <!--</div>-->
+            </div>
+
+            <div class="row"></div>
+
+            <div class="row">
+              <div class="col s4">
+                <button type="submit" class="waves-effect waves-light btn-large block emp-blue" (click)="goBack()">Back
+                </button>
+              </div>
+              <div class="col s8">
+                <button type="submit" class="waves-effect waves-light btn-large block emp-blue">Login
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
