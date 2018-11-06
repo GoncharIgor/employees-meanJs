@@ -15,6 +15,7 @@ declare var M: any;
 export class EmployeeComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService) {
+    // if I want to use service methods or properties directly from template, it has to be public???
   }
 
   ngOnInit() {
