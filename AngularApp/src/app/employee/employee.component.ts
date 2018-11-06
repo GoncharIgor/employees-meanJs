@@ -41,7 +41,6 @@ export class EmployeeComponent implements OnInit {
       this.employeeService.postEmployee(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshEmployeeList();
-        // window.location.reload();
         M.toast({html: 'Saved successfully', classes: 'rounded green'});
       });
     } else {

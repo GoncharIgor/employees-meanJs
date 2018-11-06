@@ -10,6 +10,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {GlobalErrorHandler} from './global.error.handler.service';
 import { NavigationPanelComponent } from './navigation-panel/navigation-panel.component';
 import { LoginComponent } from './login/login.component';
+import { AvatarComponent } from './avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginComponent } from './login/login.component';
     EmployeeComponent,
     ErrorComponent,
     NavigationPanelComponent,
-    LoginComponent
+    LoginComponent,
+    AvatarComponent
   ],
   imports: [
     BrowserModule,

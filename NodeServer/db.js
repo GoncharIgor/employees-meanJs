@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const dbConnectionUrl = 'mongodb://localhost:27017/CrudDB';
-//const dbConnectionUrl = 'mongodb://93.73.211.171:27017/CrudDB';
+//const dbConnectionUrl = 'mongodb://194.105.145.90:27017/CrudDB';
 
 class DbConnection {
 

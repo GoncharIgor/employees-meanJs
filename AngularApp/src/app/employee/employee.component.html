@@ -8,13 +8,14 @@
             <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
               <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
 
-              <div class="row">
+              <!--<div class="row">
                 <div *ngIf="employeeService.selectedEmployee.avatar" class="col s12">
                   <img name="avatar" #avatar="ngModel" [(ngModel)]="employeeService.selectedEmployee.avatar"
                        src="{{employeeService.selectedEmployee.avatar}}"
                        class="circle center-image"/>
                 </div>
-              </div>
+              </div>-->
+              <app-avatar [avatar]="employeeService.selectedEmployee.avatar"></app-avatar>
 
               <div class="row">
                 <div class="input-field col s12"></div>
@@ -51,6 +52,8 @@
                 <div class="input-field col s12">
                   <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
                   <button class="btn btn-custom right" type="submit" [disabled]="!employeeForm.valid">Submit</button>
+                  <!--[] - adds attribute. To add class: [class.some-css-class]="some-condition"
+                              e.g. [class.selected]="hero === selectedHero"-->
                 </div>
               </div>
             </form>
