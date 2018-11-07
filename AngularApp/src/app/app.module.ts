@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { TextHighlightDirective } from './directives/text-highlight.directive';
 import { AdminSectionComponent } from './admin-section/admin-section.component';
+import { SearchPositionComponent } from './search-position/search-position.component';
+import { PositionDetailComponent } from './position-detail/position-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { AdminSectionComponent } from './admin-section/admin-section.component';
     LoginComponent,
     AvatarComponent,
     TextHighlightDirective,
-    AdminSectionComponent
+    AdminSectionComponent,
+    SearchPositionComponent,
+    PositionDetailComponent
   ],
   imports: [
     BrowserModule,

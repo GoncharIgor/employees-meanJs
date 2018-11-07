@@ -1,16 +1,21 @@
 <div class="card" id="positions">
+  <a (click)="goBack()" class="action-btn right">
+    <i class="material-icons">arrow_back</i>
+  </a>
+
   <div class="card-content white-text">
     <span class="card-title">Positions list</span>
-  <label>Add job position:
-    <input #jobPosition/>
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button class="btn" (click)="add(jobPosition.value); jobPosition.value=''">add</button>
+    <app-search-position [positions]="positionsService.positions"></app-search-position>
+    <label>Add job position:
+      <input #jobPosition/>
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button class="btn" (click)="add(jobPosition.value); jobPosition.value=''">add</button>
 
-  <ul>
-    <li *ngFor="let position of positionsService.positions">
-      <p>{{position}}</p>
-    </li>
-  </ul>
+    <ul>
+      <li *ngFor="let position of positionsService.positions">
+        <a routerLink="/positions/{{position._id}}"><p> {{position._id}} {{position.name}}</p></a>
+      </li>
+    </ul>
   </div>
 </div>

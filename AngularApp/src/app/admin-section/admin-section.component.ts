@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PositionsService} from '../shared/positions.service';
+import {Location} from '@angular/common';
 
 declare var M: any;
 
@@ -10,7 +11,8 @@ declare var M: any;
 })
 export class AdminSectionComponent implements OnInit {
 
-  constructor(private positionsService: PositionsService) {
+  constructor(private positionsService: PositionsService,
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -22,9 +24,15 @@ export class AdminSectionComponent implements OnInit {
   }
 
   add(position: string) {
+    if (!position) {
+      return M.toast({html: `Please enter position name`, classes: 'rounded red lighten-1'});
+    }
     position = position.trim();
     this.positionsService.addPosition(position);
     M.toast({html: `${position} position was added`, classes: 'rounded green'});
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 }

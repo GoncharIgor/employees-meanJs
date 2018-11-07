@@ -8,16 +8,14 @@
             <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
               <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
 
-              <!--<div class="row">
-                <div *ngIf="employeeService.selectedEmployee.avatar" class="col s12">
-                  <img name="avatar" #avatar="ngModel" [(ngModel)]="employeeService.selectedEmployee.avatar"
-                       src="{{employeeService.selectedEmployee.avatar}}"
-                       class="circle center-image"/>
-                </div>
-              </div>-->
               <app-avatar [avatar]="employeeService.selectedEmployee.avatar"></app-avatar>
-             <!-- pass data from parent component to child one
-              passes employeeService.selectedEmployee.avatar value as an 'avatar' to app-avatar component-->
+              <!-- pass data from parent component to child one
+               passes employeeService.selectedEmployee.avatar value as an 'avatar' to app-avatar component-->
+
+              <div *ngIf="employeeService.selectedEmployee.avatar" class="row">
+                <input type="hidden" name="avatar" #avatar="ngModel"
+                       [(ngModel)]="employeeService.selectedEmployee.avatar">
+              </div>
 
               <div class="row">
                 <div class="input-field col s12"></div>
