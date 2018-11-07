@@ -1,0 +1,16 @@
+<div class="card" id="positions">
+  <div class="card-content white-text">
+    <span class="card-title">Positions list</span>
+  <label>Add job position:
+    <input #jobPosition/>
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="btn" (click)="add(jobPosition.value); jobPosition.value=''">add</button>
+
+  <ul>
+    <li *ngFor="let position of positionsService.positions">
+      <p>{{position}}</p>
+    </li>
+  </ul>
+  </div>
+</div>

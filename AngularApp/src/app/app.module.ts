@@ -11,6 +11,8 @@ import {GlobalErrorHandler} from './global.error.handler.service';
 import { NavigationPanelComponent } from './navigation-panel/navigation-panel.component';
 import { LoginComponent } from './login/login.component';
 import { AvatarComponent } from './avatar/avatar.component';
+import { TextHighlightDirective } from './directives/text-highlight.directive';
+import { AdminSectionComponent } from './admin-section/admin-section.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AvatarComponent } from './avatar/avatar.component';
     ErrorComponent,
     NavigationPanelComponent,
     LoginComponent,
-    AvatarComponent
+    AvatarComponent,
+    TextHighlightDirective,
+    AdminSectionComponent
   ],
   imports: [
     BrowserModule,

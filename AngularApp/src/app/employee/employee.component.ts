@@ -40,14 +40,16 @@ export class EmployeeComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.value._id === '' || form.value._id === null) {
       this.employeeService.postEmployee(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.refreshEmployeeList();
+        if (this.checkObjectIsEmpty(res)) {
+          this.updateFormAndResetPage(form);
+          return M.toast({html: 'Incorrect new data was entered', classes: 'rounded red lighten-1'});
+        }
+        this.updateFormAndResetPage(form);
         M.toast({html: 'Saved successfully', classes: 'rounded green'});
       });
     } else {
       this.employeeService.putEmployee(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.refreshEmployeeList();
+        this.updateFormAndResetPage(form);
         M.toast({html: 'Updated successfully', classes: 'rounded green'});
       });
     }
@@ -69,8 +71,17 @@ export class EmployeeComponent implements OnInit {
       this.employeeService.deleteEmployee(_id).subscribe((res) => {
         this.refreshEmployeeList();
         this.resetForm(form);
-        M.toast({html: 'Deleted successfully', classes: 'rounded red lighten-1'});
+        M.toast({html: 'Deleted successfully', classes: 'rounded green'});
       });
     }
+  }
+
+  private checkObjectIsEmpty(obj: Object): boolean {
+    return Object.keys(obj).length === 0;
+  }
+
+  private updateFormAndResetPage(form: NgForm) {
+    this.resetForm(form);
+    this.refreshEmployeeList();
   }
 }
