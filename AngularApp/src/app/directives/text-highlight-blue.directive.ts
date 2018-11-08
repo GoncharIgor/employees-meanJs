@@ -2,12 +2,11 @@ import {Directive, ElementRef} from '@angular/core';
 
 // Директивы позволяют получать прямой доступ к DOM ваших элементов
 @Directive({
-  selector: '[appTextHighlight]' // css attribute
+  selector: '[appTextHighlightBlue]' // css attribute
 })
-export class TextHighlightDirective {
+export class TextHighlightBlueDirective {
 
   constructor(el: ElementRef) {
-    el.nativeElement.style.backgroundColor = 'red';
+    el.nativeElement.style.backgroundColor = 'blue';
   }
-
 }

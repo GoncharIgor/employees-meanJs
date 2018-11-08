@@ -23,7 +23,10 @@
                   <label class="red-text">*</label>
                 </label>
                 <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name"
-                       placeholder="Enter full name" required>
+                       placeholder="Enter full name"
+                       required
+                       autocomplete="off"
+                       maxlength="50">
               </div>
 
               <div class="row">
@@ -31,21 +34,21 @@
                 <label>Position:</label>
                 <input type="text" name="position" #name="ngModel"
                        [(ngModel)]="employeeService.selectedEmployee.position"
-                       placeholder="Enter position">
+                       placeholder="Enter position" autocomplete="off">
               </div>
 
               <div class="row">
                 <div class="input-field col s12"></div>
                 <label>Office:</label>
                 <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office"
-                       placeholder="Enter office location">
+                       placeholder="Enter office location" autocomplete="off">
               </div>
 
               <div class="row">
                 <div class="input-field col s12"></div>
                 <label>Salary:</label>
                 <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary"
-                       placeholder="Salary per annum">
+                       placeholder="Salary per annum" autocomplete="off">
               </div>
 
               <div class="row">

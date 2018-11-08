@@ -1,4 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ErrorHandler, NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -8,13 +9,14 @@ import {EmployeeComponent} from './employee/employee.component';
 import {ErrorComponent} from './error/error.component';
 import {AppRoutingModule} from './app-routing.module';
 import {GlobalErrorHandler} from './global.error.handler.service';
-import { NavigationPanelComponent } from './navigation-panel/navigation-panel.component';
-import { LoginComponent } from './login/login.component';
-import { AvatarComponent } from './avatar/avatar.component';
-import { TextHighlightDirective } from './directives/text-highlight.directive';
-import { AdminSectionComponent } from './admin-section/admin-section.component';
-import { SearchPositionComponent } from './search-position/search-position.component';
-import { PositionDetailComponent } from './position-detail/position-detail.component';
+import {NavigationPanelComponent} from './navigation-panel/navigation-panel.component';
+import {LoginComponent} from './login/login.component';
+import {AvatarComponent} from './avatar/avatar.component';
+import {ResourceEditorModule} from './resource-editor.module';
+import {AdminSectionComponent} from './admin-section/admin-section.component';
+import {SearchPositionComponent} from './search-position/search-position.component';
+import {PositionDetailComponent} from './position-detail/position-detail.component';
+import {CustomMaterialModule} from './custom-material.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,6 @@ import { PositionDetailComponent } from './position-detail/position-detail.compo
     NavigationPanelComponent,
     LoginComponent,
     AvatarComponent,
-    TextHighlightDirective,
     AdminSectionComponent,
     SearchPositionComponent,
     PositionDetailComponent
@@ -33,10 +34,13 @@ import { PositionDetailComponent } from './position-detail/position-detail.compo
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ResourceEditorModule,
+    BrowserAnimationsModule,
+    CustomMaterialModule
   ],
   providers: [
-  //  {provide: ErrorHandler, useClass: GlobalErrorHandler}
+    //  {provide: ErrorHandler, useClass: GlobalErrorHandler}
   ],
   bootstrap: [AppComponent]
 })
