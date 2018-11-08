@@ -1,0 +1,13 @@
+<div id="search-position">
+  <h4>Position Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let position of positions" >
+      <a routerLink="/positions/{{position._id}}">
+        {{position.name}}
+      </a>
+    </li>
+  </ul>
+</div>
