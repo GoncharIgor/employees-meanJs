@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {PositionsService} from '../shared/positions.service';
+import {PositionsService} from '../../shared/positions.service';
 import {Location} from '@angular/common';
+import {Position} from '../../shared/position.model';
 
 declare var M: any;
 
@@ -20,7 +21,9 @@ export class AdminSectionComponent implements OnInit {
   }
 
   refreshPositionsList() {
-    this.positionsService.positions = this.positionsService.getPositions();
+    this.positionsService.getPositions().subscribe((res) => {
+      this.positionsService.positions = res as Position[];
+    });
   }
 
   add(position: string) {

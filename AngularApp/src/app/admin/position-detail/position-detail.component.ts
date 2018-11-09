@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
-import {PositionsService} from '../shared/positions.service';
-import {Position} from '../shared/position.model';
+import {PositionsService} from '../../shared/positions.service';
+import {Position} from '../../shared/position.model';
 
 @Component({
   selector: 'app-position-detail',
@@ -19,11 +19,13 @@ export class PositionDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.position = this.getPosition();
+    this.getPosition();
   }
 
   getPosition() {
     const id = +this.route.snapshot.paramMap.get('id');
-    return this.positionsService.getPosition(id) as Position;
+    return this.positionsService.getPosition(id).subscribe((res) => {
+      this.position = res as Position;
+    });
   }
 }

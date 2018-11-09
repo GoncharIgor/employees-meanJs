@@ -1,27 +1,19 @@
+import {Observable, of} from 'rxjs';
 import {Injectable} from '@angular/core';
-import {templateJitUrl} from '@angular/compiler';
 import {Position} from './position.model';
+import {POSITIONS} from '../mocks/mock-positions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PositionsService {
-  positions: Position[] = [{
-    _id: 1,
-    name: 'Director',
-  }, {
-    _id: 2,
-    name: 'Developer',
-  }, {
-    _id: 3,
-    name: 'QA',
-  }];
+  positions: Position[] = POSITIONS;
 
   constructor() {
   }
 
-  public getPositions() {
-    return this.positions;
+  public getPositions(): Observable<Position[]> {
+    return of(this.positions);
   }
 
   public addPosition(position: string) {
@@ -34,7 +26,7 @@ export class PositionsService {
     }
   }
 
-  getPosition(id: number) {
-    return this.positions.find((el) => el._id === id);
+  getPosition(id: number): Observable<Position> {
+    return of(this.positions.find((el) => el._id === id));
   }
 }

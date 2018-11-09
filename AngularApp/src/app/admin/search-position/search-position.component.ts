@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
-import {PositionsService} from '../shared/positions.service';
+import {PositionsService} from '../../shared/positions.service';
 
 @Component({
   selector: 'app-search-position',

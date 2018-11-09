@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ErrorComponent} from './error/error.component';
-import {EmployeeComponent} from './employee/employee.component';
+import {ErrorComponent} from './shared/error/error.component';
+import {EmployeeComponent} from './employees/employee/employee.component';
 import {LoginComponent} from './login/login.component';
-import {AdminSectionComponent} from './admin-section/admin-section.component';
-import {PositionDetailComponent} from './position-detail/position-detail.component';
+import {AdminSectionComponent} from './admin/admin-section/admin-section.component';
+import {PositionDetailComponent} from './admin/position-detail/position-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/employee', pathMatch: 'full'}, // default route
