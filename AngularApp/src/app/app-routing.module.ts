@@ -17,7 +17,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true,
+    // enableTracing: true
+  })],
   exports: [RouterModule]
   // Exporting RouterModule makes router directives available for use in the AppModule components that will need them
 })
