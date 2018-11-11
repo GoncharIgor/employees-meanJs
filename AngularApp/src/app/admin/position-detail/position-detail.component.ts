@@ -6,8 +6,7 @@ import {Position} from '../../shared/position.model';
 
 @Component({
   selector: 'app-position-detail',
-  templateUrl: './position-detail.component.html',
-  styleUrls: ['./position-detail.component.less']
+  template: '<h1>{{position.name}}</h1>'
 })
 export class PositionDetailComponent implements OnInit {
   position: Position;

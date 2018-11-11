@@ -18,6 +18,8 @@ import {SearchPositionComponent} from './admin/search-position/search-position.c
 import {PositionDetailComponent} from './admin/position-detail/position-detail.component';
 import {CustomMaterialModule} from './custom-material.module';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BasicFormComponent } from './basic-form/basic-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     AdminSectionComponent,
     SearchPositionComponent,
     PositionDetailComponent,
-    FooterComponent
+    FooterComponent,
+    BasicFormComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     AppRoutingModule,
     ResourceEditorModule,
     BrowserAnimationsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
     //  {provide: ErrorHandler, useClass: GlobalErrorHandler}
