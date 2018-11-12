@@ -13,10 +13,19 @@
   </mat-form-field>
 
   <mat-form-field>
+    <input matInput placeholder="your age" formControlName="age">
+    <mat-error *ngIf="age.invalid && age.touched && !age.focus">
+      Your age is not appropriate
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
     <mat-select placeholder="career" formControlName="career">
       <mat-option *ngFor="let opt of carrerOptions" [value]="opt">
         {{opt}}
       </mat-option>
     </mat-select>
   </mat-form-field>
+
+  <button mat-raised-button color="primary" [disabled]="!myForm.valid">Add</button>
 </form>
