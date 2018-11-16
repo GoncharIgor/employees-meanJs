@@ -18,6 +18,7 @@
     "mongoose": "^5.3.8",
     "supertest": "3.3.0",
     "jasmine-spec-reporter": "4.2.1",
-    "jasmine": "3.3.0"
+    "jasmine": "3.3.0",
+    "validate-commit-msg": "2.14.0"
   }
 }
