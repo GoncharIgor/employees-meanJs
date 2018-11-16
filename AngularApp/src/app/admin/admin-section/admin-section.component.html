@@ -1,14 +1,21 @@
 <div class="card" id="positions">
-  <a (click)="goBack()" class="action-btn right">
+  <a (click)="goBack()" class="btn-floating pulse right">
     <i class="material-icons">arrow_back</i>
   </a>
 
   <div class="card-content white-text">
     <span class="card-title" appTextHighlightBlue>Positions list</span>
     <app-search-position [positions]="positionsService.positions"></app-search-position>
-    <label>Add job position:
-      <input #jobPosition/>
-    </label>
+    <!--<label>Add job position:-->
+    <!--<input #jobPosition/>-->
+    <!--</label>-->
+    <mat-form-field>
+      <input matInput placeholder="Add job position"
+             #jobPosition
+             autocomplete="off"
+             maxlength="10">
+      <mat-hint>{{jobPosition.value.length}} / 10</mat-hint>
+    </mat-form-field>
     <!-- (click) passes input value to add() and then clears the input -->
     <button class="btn" (click)="add(jobPosition.value); jobPosition.value=''">add</button>
 
