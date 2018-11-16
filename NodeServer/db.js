@@ -4,7 +4,7 @@ const dbConnectionUrl = 'mongodb://localhost:27017/CrudDB';
 
 class DbConnection {
 
-    async setUpConection() {
+    static async setUpConnection() {
         try {
             await mongoose.connect(dbConnectionUrl, {useNewUrlParser: true}); //parser for new Mongo version >3
             console.log('Connection succeeded');

@@ -63,7 +63,6 @@ export class EmployeeComponent implements OnInit {
 
   onEdit(emp: Employee) {
     this.employeeService.selectedEmployee = emp;
-
   }
 
   onDelete(_id: string, form: NgForm) {
