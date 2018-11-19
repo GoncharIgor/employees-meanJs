@@ -18,37 +18,44 @@
               </div>
 
               <div class="row">
-                <div class="input-field col s12"></div>
-                <label>Name:
-                  <label class="red-text">*</label>
-                </label>
-                <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name"
-                       placeholder="Enter full name"
-                       required
-                       autocomplete="off"
-                       maxlength="50">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="nameInput" type="text" name="name" #name="ngModel"
+                         [(ngModel)]="employeeService.selectedEmployee.name"
+                         required
+                         autocomplete="off"
+                         maxlength="50">
+                  <label for="nameInput">Full name:<span class="red-text"> *</span></label>
+
+                </div>
               </div>
 
               <div class="row">
-                <div class="input-field col s12"></div>
-                <label>Position:</label>
-                <input type="text" name="position" #name="ngModel"
-                       [(ngModel)]="employeeService.selectedEmployee.position"
-                       placeholder="Enter position" autocomplete="off">
+                <div class="input-field col s12">
+                  <label>Position:</label>
+                  <i class="material-icons prefix">account_circle</i>
+                  <input type="text" name="position" #name="ngModel"
+                         [(ngModel)]="employeeService.selectedEmployee.position"
+                         placeholder="Enter position" autocomplete="off">
+                </div>
               </div>
 
               <div class="row">
-                <div class="input-field col s12"></div>
-                <label>Office:</label>
-                <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office"
-                       placeholder="Enter office location" autocomplete="off">
+                <div class="input-field col s12">
+                  <label>Office:</label>
+                  <i class="material-icons prefix">phone</i>
+                  <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office"
+                         placeholder="Enter office location" autocomplete="off">
+                </div>
               </div>
 
               <div class="row">
-                <div class="input-field col s12"></div>
-                <label>Salary:</label>
-                <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary"
-                       placeholder="Salary per annum" autocomplete="off">
+                <div class="input-field col s12">
+                  <label>Salary:</label>
+                  <i class="material-icons prefix">phone</i>
+                  <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary"
+                         placeholder="Salary per annum" autocomplete="off">
+                </div>
               </div>
 
               <div class="row">
