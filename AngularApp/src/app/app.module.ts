@@ -23,6 +23,7 @@ import {SearchPositionComponent} from './admin/search-position/search-position.c
 import {GlobalErrorHandler} from './global.error.handler.service';
 import { BasicFormComponent } from './admin/reactive-forms/basic-form/basic-form.component';
 import { NestedFormComponent } from './admin/reactive-forms/nested-form/nested-form.component';
+import { EmployeeDataComponent } from './admin/position-detail/employee-data/employee-data.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NestedFormComponent } from './admin/reactive-forms/nested-form/nested-f
     PositionDetailComponent,
     SearchPositionComponent,
     BasicFormComponent,
-    NestedFormComponent
+    NestedFormComponent,
+    EmployeeDataComponent
   ],
   imports: [
     ReactiveFormsModule,

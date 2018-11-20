@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node ./node_modules/jasmine/bin/jasmine.js",
     "test-init": "node ./node_modules/jasmine/bin/jasmine.js init",
-    "build": "webpack index.js --mode development"
+    "build": "webpack index.js --mode development",
+    "build-server": "webpack-dev-server index.js --mode development"
   },
   "author": "Igor Gonchar",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.25.1",
+    "webpack-dev-server": "^3.1.1",
     "webpack-cli": "^3.1.2"
   }
 }
