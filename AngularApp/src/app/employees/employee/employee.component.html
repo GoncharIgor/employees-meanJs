@@ -1,10 +1,12 @@
 <app-navigation-panel></app-navigation-panel>
+
 <div class="row">
   <div class="col s12">
     <div class="card">
       <div class="card-content white-text">
         <div class="row">
           <div class="col l5 m5 s12">
+            <h2 class="center">Employee Info</h2>
             <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
               <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
 
@@ -13,48 +15,75 @@
                passes employeeService.selectedEmployee.avatar value as an 'avatar' to app-avatar component-->
 
               <div *ngIf="employeeService.selectedEmployee.avatar" class="row">
-                <input type="hidden" name="avatar" #avatar="ngModel"
+                <input type="hidden"
+                       name="avatar"
+                       #avatar="ngModel"
                        [(ngModel)]="employeeService.selectedEmployee.avatar">
               </div>
 
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
-                  <input id="nameInput" type="text" name="name" #name="ngModel"
+                  <input id="nameInput"
+                         type="text"
+                         name="name"
+                         #name="ngModel"
                          [(ngModel)]="employeeService.selectedEmployee.name"
                          required
                          autocomplete="off"
                          maxlength="50">
-                  <label for="nameInput">Full name:<span class="red-text"> *</span></label>
-
+                  <label for="nameInput" [ngClass]="{
+                  'active': employeeService.selectedEmployee.name.length || 0 && name.focus
+                  }">Full
+                    name:<span
+                      class="red-text"> *</span></label>
                 </div>
               </div>
 
               <div class="row">
                 <div class="input-field col s12">
-                  <label>Position:</label>
-                  <i class="material-icons prefix">account_circle</i>
-                  <input type="text" name="position" #name="ngModel"
+                  <i class="material-icons prefix">business_center</i>
+                  <input id="position"
+                         type="text"
+                         name="position"
+                         #position="ngModel"
                          [(ngModel)]="employeeService.selectedEmployee.position"
-                         placeholder="Enter position" autocomplete="off">
+                         autocomplete="off">
+                  <label for="position" [ngClass]="{
+                  'active': employeeService.selectedEmployee.position.length || position.focus
+                  }">Position:</label>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+
+                  <i class="material-icons prefix">location_city</i>
+                  <input type="text"
+                         id="office"
+                         name="office"
+                         #office="ngModel"
+                         [(ngModel)]="employeeService.selectedEmployee.office"
+                         autocomplete="off">
+                  <label for="office" [ngClass]="{
+                  'active': employeeService.selectedEmployee.office.length || office.focus
+                  }">Office:</label>
                 </div>
               </div>
 
               <div class="row">
                 <div class="input-field col s12">
-                  <label>Office:</label>
-                  <i class="material-icons prefix">phone</i>
-                  <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office"
-                         placeholder="Enter office location" autocomplete="off">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s12">
-                  <label>Salary:</label>
-                  <i class="material-icons prefix">phone</i>
-                  <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary"
-                         placeholder="Salary per annum" autocomplete="off">
+                  <i class="material-icons prefix">monetization_on</i>
+                  <input type="text"
+                         id="salary"
+                         name="salary"
+                         #salary="ngModel"
+                         [(ngModel)]="employeeService.selectedEmployee.salary"
+                         autocomplete="off">
+                  <label for="salary" [ngClass]="{
+                  'active': employeeService.selectedEmployee.salary !== null || salary.focus
+                  }">Salary:</label>
                 </div>
               </div>
 
@@ -103,4 +132,5 @@
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>

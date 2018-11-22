@@ -1,14 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
-
-
 import {Observable} from 'rxjs';
 
 const observable = Observable.create((observer) => {
   try {
     observer.next('Employee data retrieved for position: '); // next: returns value
     observer.next('Second line : ');
-    observer.complete();
-    observer.next('This line wont be sent');
+    setInterval(() => {
+      observer.next('I am good ');
+    }, 2000);
+    /* observer.complete();
+     observer.next('This line wont be sent');*/
   } catch (e) {
     observer.error(e);
   }
@@ -29,13 +30,17 @@ export class EmployeeDataComponent implements OnInit {
   }
 
   getEmployeeData() {
-    observable.subscribe(
+    const observer = observable.subscribe(
       (receivedValue) => {
         return this.addItem(receivedValue + this.position);
       },
       (error: any) => this.addItem(error),
-      () => this.addItem('Completed')
+      () => this.addItem('Completed') // calls if observer.complete() function is triggered above
     );
+
+    setTimeout(() => {
+      observer.unsubscribe();
+    }, 6001);
   }
 
   addItem(item: string) {
@@ -44,5 +49,4 @@ export class EmployeeDataComponent implements OnInit {
     node.appendChild(textNode);
     document.body.appendChild(node);
   }
-
 }

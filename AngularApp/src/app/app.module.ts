@@ -21,9 +21,11 @@ import {NavigationPanelComponent} from './shared/navigation-panel/navigation-pan
 import {PositionDetailComponent} from './admin/position-detail/position-detail.component';
 import {SearchPositionComponent} from './admin/search-position/search-position.component';
 import {GlobalErrorHandler} from './global.error.handler.service';
-import { BasicFormComponent } from './admin/reactive-forms/basic-form/basic-form.component';
-import { NestedFormComponent } from './admin/reactive-forms/nested-form/nested-form.component';
-import { EmployeeDataComponent } from './admin/position-detail/employee-data/employee-data.component';
+import {BasicFormComponent} from './admin/reactive-forms/basic-form/basic-form.component';
+import {NestedFormComponent} from './admin/reactive-forms/nested-form/nested-form.component';
+import {EmployeeDataComponent} from './admin/position-detail/employee-data/employee-data.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -47,10 +49,11 @@ import { EmployeeDataComponent } from './admin/position-detail/employee-data/emp
     BrowserAnimationsModule,
     BrowserModule,
     CustomMaterialModule,
-  //  CustomReactiveFormsModule,
+    //  CustomReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    ResourceEditorModule
+    ResourceEditorModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     //  {provide: ErrorHandler, useClass: GlobalErrorHandler}
