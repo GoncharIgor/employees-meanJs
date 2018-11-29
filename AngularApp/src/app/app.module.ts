@@ -26,6 +26,7 @@ import {NestedFormComponent} from './admin/reactive-forms/nested-form/nested-for
 import {EmployeeDataComponent} from './admin/position-detail/employee-data/employee-data.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {EmployeeDataSubjectComponent} from './admin/position-detail/employee-data/employee-data-subject.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { environment } from '../environments/environment';
     SearchPositionComponent,
     BasicFormComponent,
     NestedFormComponent,
-    EmployeeDataComponent
+    EmployeeDataComponent,
+    EmployeeDataSubjectComponent
   ],
   imports: [
     ReactiveFormsModule,

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
+import {fromEvent} from 'rxjs';
 
 const observable = Observable.create((observer) => {
   try {
@@ -15,10 +16,14 @@ const observable = Observable.create((observer) => {
   }
 });
 
+const eventObservable = fromEvent(document, 'mousemove');
 
 @Component({
   selector: 'app-employee-data',
-  template: '<button class="waves-effect waves-light btn" (click)="getEmployeeData()">Get Data</button>'
+  template: `
+    <button class="waves-effect waves-light btn" (click)="getEmployeeData()">Get Data</button>
+    <button class="waves-effect waves-light btn" (click)="getDatafromMounseMoveObservable()">Get Data from Event
+    </button>`
 })
 export class EmployeeDataComponent implements OnInit {
   @Input() position: string;
@@ -31,19 +36,35 @@ export class EmployeeDataComponent implements OnInit {
 
   getEmployeeData() {
     const observer = observable.subscribe(
-      (receivedValue) => {
-        return this.addItem(receivedValue + this.position);
-      },
+      (receivedValue) => this.addItem(receivedValue + this.position),
       (error: any) => this.addItem(error),
       () => this.addItem('Completed') // calls if observer.complete() function is triggered above
     );
+
+    // we can get data from 1 observer at same time
+    const observer2 = observable.subscribe(
+      (receivedValue: any) => this.addItem('[Observer 2] ' + receivedValue + this.position)
+    );
+
+    // to unsubscribe both of observers below
+    observer.add(observer2);
 
     setTimeout(() => {
       observer.unsubscribe();
     }, 6001);
   }
 
-  addItem(item: string) {
+  getDatafromMounseMoveObservable() {
+    const subscription = eventObservable.subscribe((item) => {
+      return this.addItem(item);
+    });
+
+    setTimeout(() => {
+      subscription.unsubscribe();
+    }, 2000);
+  }
+
+  addItem(item: any) {
     const node = document.createElement('p');
     const textNode = document.createTextNode(item);
     node.appendChild(textNode);
