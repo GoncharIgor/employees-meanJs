@@ -1,9 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Subject} from 'rxjs'; // Subj - both observer and observable simultaneously
+import {Subject, BehaviorSubject, ReplaySubject, AsyncSubject} from 'rxjs'; // Subj - both observer and observable simultaneously
 import {Observable} from 'rxjs';
 
 function getDataFromSubject() {
-  const subject = new Subject(); // Subj accumulates data, unlike Observable
+  // const subject = new Subject();
+  // const subject = new BehaviorSubject('First'); // initial value
+  const subject = new ReplaySubject(2); // number of values to be given to the next observer
 
   subject.subscribe(
     data => addItem('Observer 1: ' + data),
@@ -12,33 +14,25 @@ function getDataFromSubject() {
   );
 
   subject.next('The first line has been sent');
+  subject.next('The another line has been sent');
+  subject.next('Observer 2 is going to subscribe');
+  // if it is a Behavior subj, then this line (last event) will be passed to next observer
 
-  subject.unsubscribe();
-}
-
-function getDataFromObservable() {
-  const observable = Observable.create((observer) => {
-    try {
-      observer.next('Employee data retrieved for position');
-    } catch (e) {
-      observer.error(e);
-    }
-  });
-
-  observable.subscribe(
-    (receivedValue) => addItem(receivedValue),
-    (error: any) => addItem(error),
-    () => addItem('Completed')
+  const observer2 = subject.subscribe(
+    (data) => addItem('Observer 2: ' + data)
   );
 
-  observable.unsubscribe();
+  subject.next('The second line has been sent'); // will return at observ 1 and observ2, then second line per observ
+  subject.next('The third line has been sent');
+
+  observer2.unsubscribe();
+  subject.next('Final line has been sent');
+  subject.unsubscribe();
 }
 
 @Component({
   selector: 'app-employee-data-subject',
-  template: `
-    <button class="waves-effect waves-light btn" (click)="subjButtonClicked()">Get Subject Data</button>
-    <button class="waves-effect waves-light btn" (click)="observButtonClicked()">Get Observable Data</button>`
+  template: '<button class="waves-effect waves-light btn" (click)="subjButtonClicked()">Get Subject Data</button>'
 })
 export class EmployeeDataSubjectComponent implements OnInit {
 
@@ -50,10 +44,6 @@ export class EmployeeDataSubjectComponent implements OnInit {
 
   subjButtonClicked() {
     return getDataFromSubject();
-  }
-
-  observButtonClicked() {
-    return getDataFromObservable();
   }
 }
 
