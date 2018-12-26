@@ -20,5 +20,4 @@ export class NavigationPanelComponent implements OnInit {
       this.numberOfEmployees = emps.length;
     });
   }
-
 }
